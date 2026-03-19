@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --color-copper: #E07A2F;
+  --color-copper-dark: #C96A22;
+  --color-copper-light: #FFF3E8;
+  --color-copper-50: #FEF7F0;
+  --color-danger: #E53E3E;
+  --color-danger-light: #FEE8E8;
+  --color-gold: #D69E2E;
+  --color-gold-light: #FEFAE8;
+  --color-success: #16A34A;
+  --color-success-light: #E8F8EE;
+  --color-surface: #F9FAFB;
+  --color-border: #E5E7EB;
+  --color-divider: #EBEBEB;
+  --color-text: #222222;
+  --color-text-secondary: #717171;
+  --color-livo: #6366F1;
+  --color-bog: #0891B2;
+  --color-eauction: #7C3AED;
+  --color-tbilisi: #059669;
+
+  --font-display: var(--font-body), system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Hide scrollbar for horizontal carousels */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Performance: CSS animations instead of framer-motion for list items */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.3s ease-out both;
+  }
+
+  /* GPU-accelerated image loading */
+  img {
+    content-visibility: auto;
+  }
+
+  /* Smooth scrolling for carousels */
+  .no-scrollbar {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+}
