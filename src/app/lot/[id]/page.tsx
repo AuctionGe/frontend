@@ -25,6 +25,7 @@ export default function LotDetailPage() {
   const [lot, setLot] = useState<Lot | null>(null);
   const [loading, setLoading] = useState(true);
 
+  // Initial load.
   useEffect(() => {
     if (!id) return;
     fetchLot(Number(id))
@@ -32,6 +33,18 @@ export default function LotDetailPage() {
       .catch(console.error)
       .finally(() => setLoading(false));
   }, [id]);
+
+  // Auto-refresh price every 15s for active lots.
+  useEffect(() => {
+    if (!lot || !id || lot.status !== "active") return;
+    const timer = setInterval(async () => {
+      try {
+        const fresh = await fetchLot(Number(id));
+        setLot(fresh);
+      } catch { /* ignore */ }
+    }, 15000);
+    return () => clearInterval(timer);
+  }, [id, lot?.status]);
 
   if (loading) {
     return (

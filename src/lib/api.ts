@@ -68,6 +68,10 @@ export interface SourceHealth {
 }
 
 export async function fetchLots(params: Record<string, string> = {}): Promise<PaginatedResponse<Lot>> {
+  // Exclude non-auction sources at DB level.
+  if (!params.source && !params.exclude_source) {
+    params.exclude_source = "bog";
+  }
   const query = new URLSearchParams(params).toString();
   const res = await fetch(`${API_BASE}/api/v1/lots?${query}`, { next: { revalidate: 30 } });
   if (!res.ok) throw new Error("Failed to fetch lots");
@@ -81,6 +85,10 @@ export async function fetchLot(id: number): Promise<Lot> {
 }
 
 export async function searchLots(q: string, params: Record<string, string> = {}) {
+  // Exclude non-auction sources from search.
+  if (!params.source) {
+    params.filter = 'source != "bog"';
+  }
   const query = new URLSearchParams({ q, ...params }).toString();
   const res = await fetch(`${API_BASE}/api/v1/search?${query}`);
   if (!res.ok) throw new Error("Search failed");

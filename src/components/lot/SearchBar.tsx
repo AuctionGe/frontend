@@ -51,7 +51,6 @@ const SORT_OPTIONS = [
 const SOURCES = [
   { key: "", label: "All sources" },
   { key: "livo", label: "Livo" },
-  { key: "bog", label: "BoG" },
   { key: "eauction", label: "eAuction" },
   { key: "tbilisi", label: "Tbilisi" },
 ];

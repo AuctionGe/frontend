@@ -8,6 +8,7 @@ import { EndingSoonCarousel } from "@/components/lot/EndingSoonCarousel";
 import { NoBidsSection } from "@/components/lot/NoBidsSection";
 import { LotCard } from "@/components/lot/LotCard";
 import { useI18n } from "@/lib/i18n/context";
+import { useRealtimeUpdates } from "@/lib/useRealtimeUpdates";
 
 export default function HomePage() {
   const { t } = useI18n();
@@ -20,6 +21,21 @@ export default function HomePage() {
   const [hasMore, setHasMore] = useState(true);
   const [stats, setStats] = useState({ total: 0, active: 0, sources: 0 });
   const [filters, setFilters] = useState<LotFilters>({ type: "all", priceMin: "", priceMax: "", sort: "newest", source: "" });
+
+  // Live update lot cards when bids come in via WebSocket.
+  useRealtimeUpdates(useCallback((lotId: number, data: Record<string, unknown>) => {
+    const price = data.price as number | undefined;
+    const bidsCount = data.bids_count as number | undefined;
+    if (!price && !bidsCount) return;
+
+    setLots((prev) =>
+      prev.map((lot) =>
+        lot.id === lotId
+          ? { ...lot, current_price: price ?? lot.current_price, bids_count: bidsCount ?? lot.bids_count }
+          : lot
+      )
+    );
+  }, []));
 
   const buildParams = useCallback((pageNum: number, type: string, f: LotFilters) => {
     const params: Record<string, string> = {

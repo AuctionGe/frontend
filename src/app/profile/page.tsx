@@ -75,7 +75,7 @@ export default function ProfilePage() {
       <section>
         <h2 className="text-[15px] font-semibold text-text mb-3">{t("profile.data_sources")}</h2>
         <div className="space-y-2.5">
-          {health.map((source) => (
+          {health.filter(s => s.source !== "bog").map((source) => (
             <div
               key={source.source}
               className="bg-surface rounded-2xl p-4 flex items-center gap-3"
