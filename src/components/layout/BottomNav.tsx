@@ -7,7 +7,7 @@ import { TranslationKey } from "@/lib/i18n/translations";
 
 const TABS = [
   {
-    href: "/",
+    href: "/app",
     labelKey: "nav.lots" as TranslationKey,
     icon: () => (
       <svg className="w-[22px] h-[22px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
@@ -16,7 +16,7 @@ const TABS = [
     ),
   },
   {
-    href: "/map",
+    href: "/app/map",
     labelKey: "nav.map" as TranslationKey,
     icon: () => (
       <svg className="w-[22px] h-[22px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
@@ -26,7 +26,7 @@ const TABS = [
     ),
   },
   {
-    href: "/profile",
+    href: "/app/profile",
     labelKey: "nav.profile" as TranslationKey,
     icon: () => (
       <svg className="w-[22px] h-[22px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
@@ -40,11 +40,13 @@ export function BottomNav() {
   const pathname = usePathname();
   const { t } = useI18n();
 
+  if (pathname === "/") return null;
+
   return (
     <nav className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-lg border-t border-border z-50 pb-[env(safe-area-inset-bottom)]">
       <div className="flex items-center justify-around h-[52px] max-w-lg mx-auto">
         {TABS.map((tab) => {
-          const isActive = tab.href === "/" ? pathname === "/" : pathname.startsWith(tab.href);
+          const isActive = tab.href === "/app" ? pathname === "/app" : pathname.startsWith(tab.href);
           return (
             <Link
               key={tab.href}

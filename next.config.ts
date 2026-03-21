@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "property.bog.ge" },
       { protocol: "https", hostname: "eauction.ge" },
       { protocol: "https", hostname: "auction.tbilisi.gov.ge" },
+      { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },
   // Optimize chunk splitting.

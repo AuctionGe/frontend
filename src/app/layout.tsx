@@ -4,6 +4,7 @@ import "./globals.css";
 import { BottomNav } from "@/components/layout/BottomNav";
 import { DesktopNav } from "@/components/layout/DesktopNav";
 import { I18nProvider } from "@/lib/i18n/context";
+import { MainWrapper } from "@/components/layout/MainWrapper";
 import { FavoritesProvider } from "@/lib/favorites/context";
 import { ToastProvider } from "@/components/notifications/ToastProvider";
 import { ToastContainer } from "@/components/notifications/ToastContainer";
@@ -86,9 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <FavoritesProvider>
         <ToastProvider>
           <DesktopNav />
-          <main className="max-w-lg mx-auto pb-20 lg:max-w-7xl lg:mx-auto lg:px-8 lg:pt-20 lg:pb-8">
-            {children}
-          </main>
+          <MainWrapper>{children}</MainWrapper>
           <div className="lg:hidden">
             <BottomNav />
           </div>
