@@ -31,7 +31,7 @@ export default function ProfilePage() {
       </header>
 
       {/* Favorites */}
-      <Link href="/favorites" className="block mb-6 bg-surface rounded-2xl p-4 hover:bg-border/50 transition-colors active:scale-[0.99]">
+      <Link href="/app/favorites" className="block mb-6 bg-surface rounded-2xl p-4 hover:bg-border/50 transition-colors active:scale-[0.99]">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-danger/10 flex items-center justify-center">

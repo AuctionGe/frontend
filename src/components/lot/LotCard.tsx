@@ -21,7 +21,7 @@ export const LotCard = memo(function LotCard({ lot, index = 0 }: { lot: Lot; ind
       className={index < 20 ? "animate-fade-in-up" : ""}
       style={index < 20 ? { animationDelay: `${Math.min(index * 40, 400)}ms` } : undefined}
     >
-      <Link href={`/lot/${lot.id}`} className="block">
+      <Link href={`/app/lot/${lot.id}`} className="block">
         <div className="bg-white rounded-2xl border border-border p-4 hover:shadow-md transition-shadow duration-200 active:scale-[0.99] relative">
           <div className="absolute top-3 right-3 z-10">
             <FavoriteButton lotId={lot.id} lotTitle={lot.title} size="sm" />

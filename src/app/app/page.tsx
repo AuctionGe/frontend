@@ -184,7 +184,7 @@ export default function HomePage() {
             <h1 className="text-[24px] font-bold text-text tracking-tight">{ t("home.title") }</h1>
             <p className="text-[13px] text-text-secondary mt-0.5">{ t("home.subtitle") }</p>
           </div>
-          <Link href="/live" className="relative w-10 h-10 flex items-center justify-center rounded-full bg-surface hover:bg-border transition-colors active:scale-95">
+          <Link href="/app/live" className="relative w-10 h-10 flex items-center justify-center rounded-full bg-surface hover:bg-border transition-colors active:scale-95">
             <svg className="w-5 h-5 text-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9.348 14.652a3.75 3.75 0 010-5.304m5.304 0a3.75 3.75 0 010 5.304m-7.425 2.121a6.75 6.75 0 010-9.546m9.546 0a6.75 6.75 0 010 9.546M12 12h.008v.008H12V12z" />
             </svg>

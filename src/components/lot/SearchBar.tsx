@@ -162,7 +162,7 @@ export function SearchBar({ onSearch, onFilterType, onFiltersChange, activeType,
             {results.map((hit) => (
               <Link
                 key={hit.id}
-                href={`/lot/${hit.id}`}
+                href={`/app/lot/${hit.id}`}
                 onClick={() => setShowResults(false)}
                 className="flex items-center gap-3 px-4 py-3 hover:bg-surface transition-colors border-b border-divider last:border-0"
               >
