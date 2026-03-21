@@ -8,6 +8,7 @@ import { MainWrapper } from "@/components/layout/MainWrapper";
 import { FavoritesProvider } from "@/lib/favorites/context";
 import { ToastProvider } from "@/components/notifications/ToastProvider";
 import { ToastContainer } from "@/components/notifications/ToastContainer";
+import { AuthProvider } from "@/lib/firebase/auth-context";
 import { LiveNotifications } from "@/components/notifications/LiveNotifications";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://auctionge.com";
@@ -83,6 +84,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="https://basemaps.cartocdn.com" />
       </head>
       <body className="bg-white min-h-screen">
+        <AuthProvider>
         <I18nProvider>
         <FavoritesProvider>
         <ToastProvider>
@@ -96,6 +98,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </ToastProvider>
         </FavoritesProvider>
         </I18nProvider>
+        </AuthProvider>
       </body>
     </html>
   );
