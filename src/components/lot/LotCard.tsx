@@ -18,8 +18,8 @@ export const LotCard = memo(function LotCard({ lot, index = 0 }: { lot: Lot; ind
 
   return (
     <div
-      className="animate-fade-in-up"
-      style={{ animationDelay: `${Math.min(index * 40, 400)}ms` }}
+      className={index < 20 ? "animate-fade-in-up" : ""}
+      style={index < 20 ? { animationDelay: `${Math.min(index * 40, 400)}ms` } : undefined}
     >
       <Link href={`/lot/${lot.id}`} className="block">
         <div className="bg-white rounded-2xl border border-border p-4 hover:shadow-md transition-shadow duration-200 active:scale-[0.99] relative">

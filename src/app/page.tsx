@@ -42,46 +42,43 @@ function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string
 const FEATURES = [
   {
     icon: (
-      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="#d97706" strokeWidth={1.8}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
       </svg>
     ),
     title: "4 Sources, One Platform",
     desc: "Livo, eAuction.ge, Tbilisi Municipality — all auctions aggregated in real-time. No more checking multiple sites.",
-    color: "from-amber-500 to-orange-500",
     bg: "bg-amber-50",
   },
   {
     icon: (
-      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth={1.8}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
       </svg>
     ),
     title: "Live Bid Updates",
     desc: "Real-time price tracking via WebSocket. See bids as they happen — never miss an opportunity.",
-    color: "from-violet-500 to-purple-500",
     bg: "bg-violet-50",
   },
   {
     icon: (
-      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0zM19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth={1.8}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
       </svg>
     ),
     title: "Interactive Map",
     desc: "Explore lots on a beautiful map with price bubbles. Find properties near you instantly.",
-    color: "from-emerald-500 to-teal-500",
     bg: "bg-emerald-50",
   },
   {
     icon: (
-      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#0284c7" strokeWidth={1.8}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
       </svg>
     ),
     title: "Smart Search",
     desc: "Search by name, address, cadastral code — in Georgian, English or Russian. Instant results.",
-    color: "from-sky-500 to-blue-500",
     bg: "bg-sky-50",
   },
 ];
@@ -225,15 +222,11 @@ export default function LandingPage() {
                 className="group relative bg-white rounded-3xl border border-gray-100 p-8 hover:border-gray-200 hover:shadow-lg transition-all duration-300"
               >
                 <div className={`w-12 h-12 ${f.bg} rounded-2xl flex items-center justify-center mb-5`}>
-                  <div className={`bg-gradient-to-br ${f.color} bg-clip-text text-transparent`}>
-                    {f.icon}
-                  </div>
+                  {f.icon}
                 </div>
                 <h3 className="text-[20px] font-bold text-gray-900 mb-2">{f.title}</h3>
                 <p className="text-gray-500 text-[15px] leading-relaxed">{f.desc}</p>
 
-                {/* Subtle gradient on hover */}
-                <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${f.color} opacity-0 group-hover:opacity-[0.02] transition-opacity duration-300`} />
               </div>
             ))}
           </div>
