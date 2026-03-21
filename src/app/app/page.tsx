@@ -254,7 +254,7 @@ export default function HomePage() {
         )}
 
         {/* Infinite scroll sentinel — always rendered to prevent layout shift */}
-        <div ref={hasMore && lots.length > 0 ? sentinelRef : undefined} className="h-16 flex justify-center items-center">
+        <div ref={sentinelRef} className="h-16 flex justify-center items-center">
           {hasMore && lots.length > 0 && (
             <div className="flex items-center gap-2 text-text-secondary text-[13px]">
               <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
